@@ -1,0 +1,10 @@
+mobil > penyewa_gudang
+id_mobil > kode_rak
+nama_mobil > nama_rak
+
+
+
+
+php..
+car-listing > list_rak
+vehical-details > detail_rak

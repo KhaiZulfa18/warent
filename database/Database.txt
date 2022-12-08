@@ -1,0 +1,3 @@
+Data base yang digunakan pakai 
+\namanya dibuat persis seperti yang di apsi_c4,
+ada tambahan tidak apa-apa
