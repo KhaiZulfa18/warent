@@ -88,16 +88,22 @@ while($results = mysqli_fetch_array($query))
 
 <div class="col-list-3">
   <div class="recent-car-list">
-    <!-- <div class="car-info-box"> <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id_mobil']);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($results['image1']);?>" class="img-responsive" alt="image"></a> -->
-    <!-- </div> -->
-    <div class="car-info-box">
-      <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>" class='btn' style='width:100%;'>SEWA</a>
+    <div class="car-info-box"> 
+      <?php if(!empty($results['image1'])) { ?>
+      <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($results['image1']);?>" class="img-responsive" alt="image"></a>
+      <?php } ?>
     </div>
+    <!-- <div class="car-info-box"> -->
+      <!-- <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>" class='btn' style='width:100%;'>SEWA</a> -->
+    <!-- </div> -->
     <div class="car-title-m">
       <h5>RAK <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>"><?php echo htmlentities($results['nama']);?></a></h5>
       <h6 class=""><?php echo htmlentities($results['keterangan']);?></h6> 
       <!-- <h6 class="">Kapasitas : <?php echo htmlentities($results['kapasitas']);?></h6>  -->
       <span class="price"><?php echo htmlentities(format_rupiah($results['biaya']));?></span> 
+    </div>
+    <div class="car-footer">
+      <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>" class='btn' style='width:100%;'>SEWA</a>
     </div>
   </div>
 </div>
