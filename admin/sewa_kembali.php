@@ -68,11 +68,11 @@ else{
 				<div class="row">
 					<div class="col-md-12">
 
-						<h2 class="page-title">Pengembalian Mobil</h2>
+						<h2 class="page-title">Belum Selesai</h2>
 						
 						<!-- Zero Configuration Table -->
 						<div class="panel panel-default">
-							<div class="panel-heading">Daftar Sewa Belum Dikembalikan</div>
+							<div class="panel-heading">Daftar Sewa Belum Selesai</div>
 							<div class="panel-body">
 							<?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
 							else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
@@ -81,7 +81,7 @@ else{
 										<tr align="center">
 										<th>No</th>
 										<th>Kode Sewa</th>
-										<th>Mobil</th>
+										<th>Rak</th>
 										<th>Tgl. Mulai</th>
 										<th>Tgl. Selesai</th>
 										<th>Total</th>
@@ -93,9 +93,9 @@ else{
 									<tbody>
 									<?php
 										$i=0;
-										$sqlsewa = "SELECT booking.*,mobil.*,merek.*,users.* FROM booking,mobil,merek,users WHERE booking.id_mobil=mobil.id_mobil
-													AND merek.id_merek=mobil.id_merek AND users.email=booking.email AND status='Sudah Dibayar'
-													ORDER BY booking.kode_booking DESC";
+										$sqlsewa = "SELECT booking.*,rak.*,users.* FROM booking,rak,users WHERE booking.id_mobil=rak.id
+														AND users.email=booking.email AND status='Sudah Dibayar'
+														ORDER BY booking.kode_booking DESC";
 										$querysewa = mysqli_query($koneksidb,$sqlsewa);
 										while ($result = mysqli_fetch_array($querysewa)) {
 											$biayamobil=$result['durasi']*$result['harga'];
@@ -105,7 +105,7 @@ else{
 										<tr align="center">
 											<td><?php echo $i;?></td>
 											<td><?php echo htmlentities($result['kode_booking']);?></td>
-											<td><?php echo htmlentities($result['nama_mobil']);?></td>
+											<td><?php echo htmlentities($result['nama']);?></td>
 											<td><?php echo IndonesiaTgl(htmlentities($result['tgl_mulai']));?></td>
 											<td><?php echo IndonesiaTgl(htmlentities($result['tgl_selesai']));?></td>
 											<td><?php echo format_rupiah(htmlentities($total));?></td>
@@ -113,7 +113,7 @@ else{
 											<td><?php echo htmlentities($result['status']);?></td>
 											<td>
 											<a href="#myModal" data-toggle="modal" data-load-code="<?php echo $result['kode_booking']; ?>" data-remote-target="#myModal .modal-body"><span class="glyphicon glyphicon-eye-open"></span></a>&nbsp;&nbsp;&nbsp;
-											<a href="sewaeditkembali.php?id=<?php echo $result['kode_booking'];?>"><i class="fa fa-edit"></i></a></td>
+											<!-- <a href="sewaeditkembali.php?id=<?php echo $result['kode_booking'];?>"><i class="fa fa-edit"></i></a></td> -->
 										</tr>
 										<?php }?>
 									</tbody>

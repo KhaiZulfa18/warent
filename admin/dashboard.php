@@ -76,7 +76,7 @@ else{
 											<div class="panel-body bk-success text-light">
 												<div class="stat-panel text-center">
 												<?php 
-												$sql1 = "SELECT id_mobil FROM mobil";
+												$sql1 = "SELECT id FROM rak";
 												$query1 = mysqli_query($koneksidb,$sql1);
 												$totalvehicle=mysqli_num_rows($query1);
 												?>
@@ -134,7 +134,7 @@ else{
 												$belum=mysqli_num_rows($querybelum);
 												?>
 													<div class="stat-panel-number h1 "><?php echo htmlentities($belum);?></div>
-													<div class="stat-panel-title text-uppercase">Belum Dikembalikan</div>
+													<div class="stat-panel-title text-uppercase">Belum Selesai</div>
 												</div>
 											</div>
 											<a href="sewa_kembali.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>

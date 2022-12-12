@@ -9,11 +9,11 @@ include('includes/format_rupiah.php');
 include('includes/library.php');
 if($_GET) {
 	$Kode = $_GET['code'];
-	$sqlsewa = "SELECT booking.*,mobil.*,merek.*,users.* FROM booking,mobil,merek,users WHERE booking.id_mobil=mobil.id_mobil
-				AND merek.id_merek=mobil.id_merek AND users.email=booking.email AND booking.kode_booking='$Kode'";
+	$sqlsewa = "SELECT booking.*,rak.*,users.* FROM booking,rak,users WHERE booking.id_mobil=rak.id
+				AND users.email=booking.email AND booking.kode_booking='$Kode'";
 	$querysewa = mysqli_query($koneksidb,$sqlsewa);
 	$result = mysqli_fetch_array($querysewa);
-	$biayamobil=$result['durasi']*$result['harga'];
+	$biayamobil=$result['durasi']*$result['biaya'];
 	$bukti=$result['bukti_bayar'];
 }
 else {
@@ -46,7 +46,7 @@ else {
 	<tr>
 		<td width="20%"><b>Mobil</b></td>
 		<td width="2%"><b>:</b></td>
-		<td width="78%"><?php echo $result['nama_mobil'];?></td>
+		<td width="78%"><?php echo $result['nama'];?></td>
 	</tr>
 	<tr>
 		<td colspan="3">&nbsp;</td>
