@@ -10,7 +10,9 @@ if(mysqli_num_rows($query)>0){
 	$_SESSION['ulogin']=$_POST['email'];
 	$_SESSION['fname']=$results['nama_user'];
 	$currentpage=$_SERVER['REQUEST_URI'];
-	echo "<script type='text/javascript'> document.location = '$currentpage'; </script>";
+	echo "<script type='text/javascript'> 
+        alert('Berhasil login!');
+        document.location = '$currentpage'; </script>";
 	} else{
 		echo "<script>alert('Email atau Password Salah!, Silahkan di coba kembali');</script>";
 	}

@@ -65,7 +65,7 @@ error_reporting(0);
           <div class="sorting-count">
 <?php 
 //Query for Listing count
-$sql = "SELECT id_mobil from mobil";
+$sql = "SELECT id from rak";
 $query = mysqli_query($koneksidb,$sql);
 $cnt = mysqli_num_rows($query);
 ?>
@@ -74,7 +74,7 @@ $cnt = mysqli_num_rows($query);
 </div>
 
 <?php 
-$sql1 = "SELECT mobil.* FROM mobil,merek WHERE merek.id_merek=mobil.id_merek";
+$sql1 = "SELECT rak.* FROM rak";
 $query1 = mysqli_query($koneksidb,$sql1);
 if(mysqli_num_rows($query1)>0)
 {
@@ -85,10 +85,10 @@ while($result = mysqli_fetch_array($query1))
           <div class="product-listing-img"><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image1']);?>" class="img-responsive" alt="Image" /> </a> 
           </div>
           <div class="product-listing-content">
-            <h2 class="detail_rak.php?vhid=><?php echo htmlentities($result['id_mobil']);?>"><?php echo htmlentities($result['nama_mobil']);?></h2>
-            <h6 class="list-price"><?php echo htmlentities(format_rupiah($result['harga']));?> / Hari</h6>
+            <h2 class="detail_rak.php?vhid=><?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['nama']);?></h2>
+            <h6 class="list-price"><?php echo htmlentities(format_rupiah($result['biaya']));?> / Hari</h6>
             </ul>
-            <a href="detail_rak.php?vhid=<?php echo htmlentities($result['id_mobil']);?>" class="btn">Lihat Detail Rak <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
+            <a href="detail_rak.php?vhid=<?php echo htmlentities($result['id']);?>" class="btn">Lihat Detail Rak <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>
           </div>
         </div>
       <?php }} ?>

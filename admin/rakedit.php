@@ -104,6 +104,10 @@ function valid(theform){
 											<div class="col-sm-4">
 												<textarea class="form-control" name="keterangan" rows="3" required><?php echo htmlentities($result['keterangan']);?></textarea>
 											</div>
+											<label class="col-sm-2 control-label">Kode Rek<span style="color:red">*</span></label>
+											<div class="col-sm-4">
+												<input type="text" name="koderek" class="form-control" value="<?php echo htmlentities($result['kode_rek']);?>" required>
+											</div>
 										</div>
 
 										<div class="form-group">
@@ -117,7 +121,36 @@ function valid(theform){
 											</div>
 										</div>
 										
-										<div class="hr-dashed"></div>																		
+										<div class="hr-dashed"></div>			
+										
+										<div class="form-group">
+											
+											<div class="col-sm-4">
+												Gambar 1
+												<?php if(!empty($result['image1'])){ ?>
+												<img src="img/vehicleimages/<?php echo (!empty($result['image1'])) ? htmlentities($result['image1']) : '';?>" width="300" height="200" style="border:solid 1px #000">
+												<?php } ?>
+												<input type="file" name="img1" accept="image/*">
+												<span>*Upload gambar jika ingin mengubah gambar</span>
+											</div>
+											<div class="col-sm-4">
+												Gambar 2
+												<?php if(!empty($result['image2'])){ ?>
+												<img src="img/vehicleimages/<?php echo htmlentities($result['image2']);?>" width="300" height="200" style="border:solid 1px #000">
+												<?php } ?>
+												<input type="file" name="img2" accept="image/*">
+												<span>*Upload gambar jika ingin mengubah gambar</span>
+											</div>
+											<div class="col-sm-4">
+												Gambar 3
+												<?php if(!empty($result['image3'])){ ?>
+												<img src="img/vehicleimages/<?php echo htmlentities($result['image3']);?>" width="300" height="200" style="border:solid 1px #000">
+												<?php } ?>
+												<input type="file" name="img3" accept="image/*">
+												<span>*Upload gambar jika ingin mengubah gambar</span>
+											</div>
+										</div>
+
 									</div>
 								</div>
 							</div>

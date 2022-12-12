@@ -91,8 +91,19 @@ function valid(theform){
 										<div class="col-sm-3">
 											<input type="number" min="1" name="kapasitas" class="form-control" required>
 										</div>
-								
-									<!-- <div class="hr-dashed"></div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-1 control-label">Kode Rek<span style="color:red">*</span></label>
+										<div class="col-sm-3">
+											<input type="text" name="koderek" class="form-control" required>
+										</div>
+										<label class="col-sm-1 control-label">Keterangan<span style="color:red">*</span></label>
+										<div class="col-sm-7">
+											<input type="text" name="keterangan" class="form-control" required>
+										</div>
+									</div>
+									<div class="hr-dashed"></div>
 
 									<div class="form-group">
 										<div class="col-sm-12">
@@ -102,16 +113,16 @@ function valid(theform){
 
 									<div class="form-group">
 										<div class="col-sm-4">
-											Gambar 1<span style="color:red">*</span><input type="file" name="img1" accept="image/*" required>
+											Gambar 1<span style="color:red">*</span><input type="file" name="img1" accept="image/*">
 										</div>
 										<div class="col-sm-4">
-											Gambar 2<span style="color:red">*</span><input type="file" name="img2" accept="image/*" required>
+											Gambar 2<span style="color:red">*</span><input type="file" name="img2" accept="image/*">
 										</div>
 										<div class="col-sm-4">
-											Gambar 3<span style="color:red">*</span><input type="file" name="img3" accept="image/*" required>
+											Gambar 3<span style="color:red">*</span><input type="file" name="img3" accept="image/*">
 										</div>
 									</div>
-
+									<!-- 
 									<div class="form-group">
 										<div class="col-sm-4">
 											Gambar 4<span style="color:red">*</span><input type="file" name="img4" accept="image/*" required>

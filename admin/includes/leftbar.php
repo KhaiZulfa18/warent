@@ -9,7 +9,7 @@
 						<li><a href="sewa_kembali.php">Pengembalian</a></li>
 						<li><a href="sewa.php">Data Sewa</a></li>
                     </ul>
-				<li><a href="mobil.php"><i class="fa fa-file"></i> Daftar Rak</a>
+				<li><a href="rak.php"><i class="fa fa-file"></i> Daftar Rak</a>
 				<li><a href="reg-users.php"><i class="fa fa-users"></i> Daftar User</a></li>
 			</ul>
 	</nav>

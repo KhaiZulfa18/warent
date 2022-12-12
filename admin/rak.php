@@ -74,6 +74,7 @@ if(strlen($_SESSION['alogin'])==0){
 										<tr>
 											<th>No</th>
 											<th>Nama Rak</th>
+											<th>Kode Rek</th>
 											<th>Harga /Hari</th>
 											<th>Kapasitas</th>
 											<th>Keterangan</th>
@@ -90,6 +91,7 @@ if(strlen($_SESSION['alogin'])==0){
 										<tr>
 											<td><?php echo htmlentities($nomor);?></td>
 											<td><?php echo htmlentities($result['nama']);?></td>
+											<td><?php echo htmlentities($result['kode_rek']);?></td>
 											<td><?php echo format_rupiah($result['biaya']);?></td>
 											<td><?php echo htmlentities($result['kapasitas']);?></td>
 											<td><?php echo htmlentities($result['keterangan']);?></td>
