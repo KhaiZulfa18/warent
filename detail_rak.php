@@ -65,7 +65,7 @@ error_reporting(0);
 
 <?php 
 $vhid=intval($_GET['vhid']);
-$sql = "SELECT mobil.*, merek.* from mobil, merek WHERE merek.id_merek=mobil.id_merek AND mobil.id_mobil='$vhid'";
+$sql = "SELECT * from rak WHERE id='$vhid'";
 $query = mysqli_query($koneksidb,$sql);
 if(mysqli_num_rows($query)>0)
 {
@@ -75,17 +75,11 @@ while($result = mysqli_fetch_array($query))
 ?>  
 
 <section id="listing_img_slider">
-  <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image1']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image2']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image3']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image4']);?>" class="img-responsive"  alt="image" width="950" height="600"></div>
-  <?php if($result['image5']=="")
-	{
-
-	} else {
-  ?>
-  <div><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image5']);?>" class="img-responsive" alt="image" width="900" height="560"></div>
-  <?php } ?>
+  <!-- <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image1']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image2']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image3']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image4']);?>" class="img-responsive"  alt="image" width="950" height="600"></div> -->
+  
 </section>
 <!--/Listing-Image-Slider-->
 
@@ -95,19 +89,19 @@ while($result = mysqli_fetch_array($query))
   <div class="container">
     <div class="listing_detail_head row">
       <div class="col-md-9">
-        <h2><?php echo htmlentities($result['nama_mobil']);?></h2>
+        <h1><?php echo htmlentities($result['nama']);?></h1>
+      </div>
+      <div class="col-md-12">
+        <h4><?php echo htmlentities($result['keterangan']);?></h4>
+        <h4>Kapasitas : <?php echo htmlentities($result['kapasitas']);?></h4>
       </div>
       <div class="col-md-12 col-sm-3">
         <div class="price_info">
-          <p><?php echo htmlentities(format_rupiah($result['harga']));?> </p>/ Hari
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-          
+          <p><?php echo htmlentities(format_rupiah($result['biaya']));?> </p>/ Hari
         </div>
+      </div>
+    </div>        
+  </div>
 <?php }} ?>
    
       </div>
@@ -118,16 +112,16 @@ while($result = mysqli_fetch_array($query))
             <h5><i class="fa fa-envelope" aria-hidden="true"></i>Sewa Sekarang</h5>
           </div>
           <form method="get" action="booking.php">
-			<input type="hidden" class="form-control" name="vid" value=<?php echo $vhid;?> required>
+          <input type="hidden" class="form-control" name="vid" value=<?php echo $vhid;?> required>
 
-			<?php if($_SESSION['ulogin'])
-              {?>
-              <div class="form-group" align="center">
-                <button class="btn" align="center">Sewa Sekarang Juga</button>
-              </div>
-              <?php } else { ?>
-				<a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login Untuk Menyewa</a>
-              <?php } ?>
+          <?php if($_SESSION['ulogin']){ ?>
+            <div class="form-group" align="center">
+              <button class="btn" align="center">Sewa Sekarang Juga</button>
+            </div>
+          <?php } else { ?>
+            <a href="#loginform" class="btn btn-xs uppercase" data-toggle="modal" data-dismiss="modal">Login Untuk Menyewa</a>
+          <?php } ?>
+        </div>
 
 
 <!--/Listing-detail--> 

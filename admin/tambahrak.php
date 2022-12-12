@@ -55,7 +55,7 @@ header('location:index.php');
 function valid(theform){
 		pola_nama=/^[a-zA-Z]*$/;
 		if (!pola_nama.test(theform.vehicletitle.value)){
-		alert ('Hanya huruf yang diperbolehkan untuk Nama Mobil!');
+		alert ('Hanya huruf yang diperbolehkan untuk Nama Rak!');
 		theform.vehicletitle.focus();
 		return false;
 		}
@@ -79,16 +79,20 @@ function valid(theform){
 								<div class="panel-body">
 									<form method="post" name="theform" action="tambahrakact.php" class="form-horizontal" onsubmit="return valid(this);" enctype="multipart/form-data">
 									<div class="form-group">
-										<label class="col-sm-2 control-label">Nama Rak<span style="color:red">*</span></label>
-										<div class="col-sm-4">
+										<label class="col-sm-1 control-label">Nama Rak<span style="color:red">*</span></label>
+										<div class="col-sm-3">
 											<input type="text" name="vehicletitle" class="form-control" required>
 										</div>
-										<label class="col-sm-2 control-label">Harga /Hari<span style="color:red">*</span></label>
-										<div class="col-sm-4">
+										<label class="col-sm-1 control-label">Harga /Hari<span style="color:red">*</span></label>
+										<div class="col-sm-3">
 											<input type="number" min="1" name="priceperday" class="form-control" required>
 										</div>
+										<label class="col-sm-1 control-label">Kapasitas /Hari<span style="color:red">*</span></label>
+										<div class="col-sm-3">
+											<input type="number" min="1" name="kapasitas" class="form-control" required>
+										</div>
 								
-									<div class="hr-dashed"></div>
+									<!-- <div class="hr-dashed"></div>
 
 									<div class="form-group">
 										<div class="col-sm-12">
@@ -115,7 +119,7 @@ function valid(theform){
 										<div class="col-sm-4">
 											Gambar 5<input type="file" name="img5" accept="image/*">
 										</div>
-									</div>
+									</div> -->
 									<div class="hr-dashed"></div>									
 								</div>
 

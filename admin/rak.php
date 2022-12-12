@@ -75,22 +75,26 @@ if(strlen($_SESSION['alogin'])==0){
 											<th>No</th>
 											<th>Nama Rak</th>
 											<th>Harga /Hari</th>
+											<th>Kapasitas</th>
+											<th>Keterangan</th>
 											<th><a href="tambahrak.php"><span class="fa fa-plus-circle"></span>Tambah Rak</a></th>
 										</tr>
 									<tbody>
 									<?php 
 										$nomor = 0;
-										$sqlmobil = "SELECT mobil.*, merek.* FROM mobil, merek WHERE mobil.id_merek=merek.id_merek ORDER BY mobil.id_mobil ASC";
+										$sqlmobil = "SELECT rak.* FROM rak ORDER BY rak.id ASC";
 										$querymobil = mysqli_query($koneksidb,$sqlmobil);
 										while ($result = mysqli_fetch_array($querymobil)){
 											$nomor++;
 											?>
 										<tr>
 											<td><?php echo htmlentities($nomor);?></td>
-											<td><?php echo htmlentities($result['nama_mobil']);?></td>
-											<td><?php echo format_rupiah($result['harga']);?></td>
-											<td class="text-center"><a href="rakedit.php?id=<?php echo $result['id_mobil'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
-												<a href="rakdel.php?id=<?php echo $result['id_mobil'];?>" onclick="return confirm('Apakah anda akan menghapus <?php echo $result['nama_mobil'];?>?');"><i class="fa fa-close"></i></a></td>
+											<td><?php echo htmlentities($result['nama']);?></td>
+											<td><?php echo format_rupiah($result['biaya']);?></td>
+											<td><?php echo htmlentities($result['kapasitas']);?></td>
+											<td><?php echo htmlentities($result['keterangan']);?></td>
+											<td class="text-center"><a href="rakedit.php?id=<?php echo $result['id'];?>"><i class="fa fa-edit"></i></a>&nbsp;&nbsp;
+												<a href="rakdel.php?id=<?php echo $result['id'];?>" onclick="return confirm('Apakah anda akan menghapus Rak <?php echo $result['nama'];?>?');"><i class="fa fa-close"></i></a></td>
 										</tr>
 										<?php } ?>
 									</tbody>

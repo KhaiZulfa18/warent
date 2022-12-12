@@ -77,7 +77,7 @@ error_reporting(0);
 
 <?php 
 // $sql = "SELECT mobil.*, merek.* FROM mobil, merek WHERE merek.id_merek = mobil.id_merek";
-$sql = "SELECT * FROM rak WHERE deleted_at is NULL";
+$sql = "SELECT * FROM rak";
 $query = mysqli_query($koneksidb,$sql);
 if(mysqli_num_rows($query)>0)
 {
@@ -87,17 +87,19 @@ while($results = mysqli_fetch_array($query))
 ?>  
 
 <div class="col-list-3">
-<div class="recent-car-list">
-<div class="car-info-box"> <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id_mobil']);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($results['image1']);?>" class="img-responsive" alt="image"></a>
-<ul>
-
-</div>
-<div class="car-title-m">
-<h6><a href="detail_rak.php?vhid=<?php echo htmlentities($results['kode']);?>"><?php echo htmlentities($results['nama']);?></a></h6>
-<span class="price"><?php echo htmlentities(format_rupiah($results['harga']));?> Tes</span> 
-
-</div>
-</div>
+  <div class="recent-car-list">
+    <!-- <div class="car-info-box"> <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id_mobil']);?>"><img src="admin/img/vehicleimages/<?php echo htmlentities($results['image1']);?>" class="img-responsive" alt="image"></a> -->
+    <!-- </div> -->
+    <div class="car-info-box">
+      <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>" class='btn' style='width:100%;'>SEWA</a>
+    </div>
+    <div class="car-title-m">
+      <h5>RAK <a href="detail_rak.php?vhid=<?php echo htmlentities($results['id']);?>"><?php echo htmlentities($results['nama']);?></a></h5>
+      <h6 class=""><?php echo htmlentities($results['keterangan']);?></h6> 
+      <!-- <h6 class="">Kapasitas : <?php echo htmlentities($results['kapasitas']);?></h6>  -->
+      <span class="price"><?php echo htmlentities(format_rupiah($results['biaya']));?></span> 
+    </div>
+  </div>
 </div>
 <?php }}?>
        

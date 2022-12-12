@@ -81,7 +81,7 @@ else{
 												$totalvehicle=mysqli_num_rows($query1);
 												?>
 													<div class="stat-panel-number h1 "><?php echo htmlentities($totalvehicle);?></div>
-													<div class="stat-panel-title text-uppercase">Jumlah Mobil</div>
+													<div class="stat-panel-title text-uppercase">Jumlah Rak</div>
 												</div>
 											</div>
 											<a href="mobil.php" class="block-anchor panel-footer text-center">Rincian &nbsp; <i class="fa fa-arrow-right"></i></a>
