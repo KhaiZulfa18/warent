@@ -9,7 +9,8 @@ function buatKode($tabel, $inisial){
 	$field		= mysqli_fetch_field_direct($struktur,0)->name;
 
 	// membaca panjang kolom kunci (cara 1)
-	$panjang	= mysqli_fetch_field_direct($struktur,0)->length;
+	// $panjang	= mysqli_fetch_field_direct($struktur,0)->length;
+	$panjang = 8;
 	
 	// membaca panjang kolom kunci (cara 2)
 	//$hasil 	= mysql_fetch_field($struktur,0);

@@ -75,10 +75,10 @@ while($result = mysqli_fetch_array($query))
 ?>  
 
 <section id="listing_img_slider">
-  <!-- <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image1']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image2']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image3']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
-  <div><img src="admin/img/vehicleimages/<?php // echo htmlentities($result['image4']);?>" class="img-responsive"  alt="image" width="950" height="600"></div> -->
+  <div><img src="admin/img/vehicleimages/<?php  echo htmlentities($result['image1']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php  echo htmlentities($result['image2']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php  echo htmlentities($result['image3']);?>" class="img-responsive" alt="image" width="950" height="600"></div>
+  <div><img src="admin/img/vehicleimages/<?php  echo htmlentities($result['image1']);?>" class="img-responsive"  alt="image" width="950" height="600"></div>
   
 </section>
 <!--/Listing-Image-Slider-->

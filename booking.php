@@ -10,18 +10,18 @@ if(strlen($_SESSION['ulogin'])==0){
 	$tglnow   = date('Y-m-d');
 	$tglmulai = strtotime($tglnow);
 	$jmlhari  = 86400*1;
-	$tglplus	  = $tglmulai+$jmlhari;
+	$tglplus = $tglmulai+$jmlhari;
 	$now = date("Y-m-d",$tglplus);
 
 if(isset($_POST['submit'])){
 	$fromdate=$_POST['fromdate'];
 	$todate=$_POST['todate'];
-
+	$vid=$_GET['vid'];
 //cek
 $sql 	= "SELECT kode_booking FROM cek_booking WHERE tgl_booking between '$fromdate' AND '$todate' AND id_mobil='$vid' AND status!='Cancel'";
 $query 	= mysqli_query($koneksidb,$sql);
 if(mysqli_num_rows($query)>0){
-		echo " <script> alert ('Mobil tidak tersedia di tanggal yang anda pilih, silahkan pilih tanggal lain!'); 
+		echo " <script> alert ('Rak tidak tersedia di tanggal yang anda pilih, silahkan pilih tanggal lain!'); 
 		</script> ";
 	}else{
 		echo "<script type='text/javascript'> document.location = 'booking_ready.php?vid=$vid&mulai=$fromdate&selesai=$todate'; </script>";
@@ -75,7 +75,7 @@ if(mysqli_num_rows($query)>0){
 <?php 
 $vid=$_GET['vid'];
 $useremail=$_SESSION['login'];
-$sql1 = "SELECT mobil.*,merek.* FROM mobil,merek WHERE merek.id_merek=mobil.id_merek and mobil.id_mobil='$vid'";
+$sql1 = "SELECT * FROM rak WHERE id='$vid'";
 $query1 = mysqli_query($koneksidb,$sql1);
 $result = mysqli_fetch_array($query1);
 ?>
@@ -100,8 +100,9 @@ return true;
 	<div class="col-md-9 col-sm-8">
 	      <div class="product-listing-img"><img src="admin/img/vehicleimages/<?php echo htmlentities($result['image1']);?>" class="img-responsive" alt="Image" /> </a> </div>
           <div class="product-listing-content">
-            <h1><?php echo htmlentities($result['nama_mobil']);?></a></h1>
-            <h5 class="list-price"><?php echo htmlentities(format_rupiah($result['harga']));?> / Hari</h5>
+            <h1><?php echo htmlentities($result['nama']);?></a></h1>
+            <h4><?php echo htmlentities($result['keterangan']);?></a></h1>
+            <h5 class="list-price"><?php echo htmlentities(format_rupiah($result['biaya']));?> / Hari</h5>
             <ul>
           </div>	
 	</div>

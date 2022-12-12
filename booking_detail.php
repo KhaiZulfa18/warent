@@ -66,10 +66,10 @@ if(strlen($_SESSION['ulogin'])==0){
 
 <?php 
 $kode=$_GET['kode'];
-$sql1 	= "SELECT booking.*,mobil.*, merek.* FROM booking,mobil,merek WHERE booking.id_mobil=mobil.id_mobil AND merek.id_merek=mobil.id_merek and booking.kode_booking='$kode'";
+$sql1 	= "SELECT booking.*,rak.* FROM booking,rak WHERE booking.id_mobil=rak.id and booking.kode_booking='$kode'";
 $query1 = mysqli_query($koneksidb,$sql1);
 $result = mysqli_fetch_array($query1);
-$harga	= $result['harga'];
+$harga	= $result['biaya'];
 $durasi = $result['durasi'];
 $totalmobil = $durasi*$harga;
 $drivercharges = $result['driver'];
@@ -92,8 +92,8 @@ $tglhasil = date("Y-m-d",$tgl);
             </div>
 			<input type="hidden" class="form-control" name="vid"  value="<?php echo $vid;?>"required>
             <div class="form-group">
-			<label>Mobil</label>
-				<input type="text" class="form-control" name="mobil" value="<?php echo $result['nama_merek']; echo ", "; echo $result['nama_mobil'];?>"readonly>
+			<label>Rak</label>
+				<input type="text" class="form-control" name="mobil" value="<?php echo $result['nama'];?>"readonly>
             </div>
             <div class="form-group">
 			<label>Tanggal Mulai</label>
@@ -108,14 +108,14 @@ $tglhasil = date("Y-m-d",$tgl);
 				<input type="text" class="form-control" name="durasi" value="<?php echo $durasi;?> Hari"readonly>
             </div>
             <div class="form-group">
-			<label>Biaya Mobil (<?php echo $durasi;?> Hari)</label><br/>
+			<label>Biaya Sewa Rak (<?php echo $durasi;?> Hari)</label><br/>
 				<input type="text" class="form-control" name="biayamobil" value="<?php echo format_rupiah($totalmobil);?>"readonly>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
 			<label>Biaya Driver (<?php echo $durasi;?> Hari)</label><br/>
 				<input type="hidden" class="form-control" name="biayadriver" value="<?php echo $drivercharges;?>"readonly>
 				<input type="text" class="form-control" name="driver" value="<?php echo format_rupiah($drivercharges);?>"readonly>
-            </div>
+            </div> -->
             <div class="form-group">
 			<label>Total Biaya Sewa (<?php echo $durasi;?> Hari)</label><br/>
 				<input type="text" class="form-control" name="total" value="<?php echo format_rupiah($totalsewa);?>"readonly>
